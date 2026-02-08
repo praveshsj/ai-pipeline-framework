@@ -120,7 +120,7 @@ services:
 
   # Spark worker
   spark-worker:
-    image: bitnami/spark:3.5.0
+    image: bitnami/spark:3.5
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark-master:7077
