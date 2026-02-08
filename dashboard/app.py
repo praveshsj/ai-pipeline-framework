@@ -35,13 +35,14 @@ def get_failed_tasks(limit=20):
     SELECT 
         ti.task_id,
         ti.dag_id,
-        ti.execution_date,
+        dr.logical_date as execution_date,
         ti.state,
         ti.try_number,
         ti.duration,
         ti.end_date,
         d.description as dag_description
     FROM task_instance ti
+    JOIN dag_run dr ON ti.dag_id = dr.dag_id AND ti.run_id = dr.run_id
     JOIN dag d ON ti.dag_id = d.dag_id
     WHERE ti.state = 'failed'
     ORDER BY ti.end_date DESC
@@ -55,7 +56,6 @@ def get_failed_tasks(limit=20):
     conn.close()
     
     return results
-
 
 @app.route('/')
 def index():
