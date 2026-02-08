@@ -1,0 +1,21 @@
+# In your repository, create .gitignore file with:
+
+# Environment files (NEVER commit these!)
+.env
+.env.local
+*.env
+
+# API keys and secrets
+*_key
+*_secret
+*.pem
+
+# Docker volumes
+logs/
+plugins/
+data/
+spark_jobs/
+
+# OS files
+.DS_Store
+Thumbs.db
