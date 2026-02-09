@@ -16,7 +16,7 @@ import sys
 
 # Import AI analyzer
 sys.path.append('/opt/airflow')
-from ai_analyzer.failure_analyzer import analyze_airflow_failure
+# #from ai_analyzer.failure_analyzer import analyze_airflow_failure
 
 default_args = {
     'owner': 'pravesh',
@@ -241,7 +241,7 @@ def task_spark_error(**context):
     spark = SparkSession.builder \
         .appName("TestSparkFailure") \
         .master("spark://spark-master:7077") \
-        .config("spark.executor.memory", "512m")  # Too small!
+        .config("spark.executor.memory", "512m") \
         .getOrCreate()
     
     # Try to process large data with insufficient memory

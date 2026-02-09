@@ -35,7 +35,7 @@ def get_failed_tasks(limit=20):
     SELECT 
         ti.task_id,
         ti.dag_id,
-        dr.logical_date as execution_date,
+        dr.execution_date,
         ti.state,
         ti.try_number,
         ti.duration,
